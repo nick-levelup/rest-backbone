@@ -1,18 +1,18 @@
 define([], function () {
 
 	return [
-		'<table>',
+		'<table class="table-hover table table-striped">',
 			'<thead>',
 				'<tr>',
-					'<th>Title</th>',
-					'<th>Author</th>',
-					'<th>Date</th>',
+					'<th data-sort="title">Title</th>',
+					'<th data-sort="author">Author</th>',
+					'<th data-sort="date">Date</th>',
 					'<th>Delete</th>',
 				'</tr>',
 			'</thead>',
 			'<tbody>',
 				'{{#each this}}',
-				'<tr>',
+				'<tr data-id="{{id}}">',
 					'<td>{{title}}</td>',
 					'<td>{{author}}</td>',
 					'<td>{{date}}</td>',

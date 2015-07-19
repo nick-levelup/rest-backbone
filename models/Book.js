@@ -12,6 +12,17 @@ define([
 	      });
 	    },
 
+		parse: function (data) {
+			if (data.releaseDateMS) {
+                data.releaseDateMS = new Date(data.releaseDateMS);
+            }
+
+            data.date = data.releaseDateMS;
+            delete data.releaseDateMS;
+
+			return data;
+		},
+
 	    idAttribute: '_id'
 	});
  });
