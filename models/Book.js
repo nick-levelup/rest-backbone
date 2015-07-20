@@ -13,16 +13,17 @@ define([
 	    },
 
 		parse: function (data) {
-			if (data.releaseDateMS) {
-                data.releaseDateMS = new Date(data.releaseDateMS);
-            }
+			data.date = data.releaseDateMS;
 
-            data.date = data.releaseDateMS;
-            delete data.releaseDateMS;
+			delete data.releaseDateMS;
+			delete data._id;
+			delete data.__v;
 
-			return data;
+			data.bookTitle = data.title;
+
+			return data
 		},
 
-	    idAttribute: '_id'
+	    // idAttribute: '_id'
 	});
  });

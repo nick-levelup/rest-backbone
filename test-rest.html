@@ -8,7 +8,22 @@
 </head>
 <body>
 
-<form class="js-form" action="">
+<script data-main="core.js" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.19/require.js"></script>
+
+<script id="booksTpl" type="text/x-handlebars-template">
+    <thead>
+        <tr>
+            <th data-sort="bookTitle">Title</th>
+            <th data-sort="author">Author</th>
+            <th data-sort="date">Date</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</script>
+
+<script id="formTpl" type="text/x-handlebars-template">
     <div class="form-group">
         <label for="">
             Title
@@ -29,10 +44,13 @@
     </div>
 
     <button type="submit" class="btn btn-default">Submit</button>
-</form>
+</script>
 
-<div class="js-books"></div>
-
-<script data-main="core.js" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.19/require.js"></script>
+<script id="bookTpl" type="text/x-handlebars-template">
+    <td>{{bookTitle}}</td>
+    <td>{{author}}</td>
+    <td>{{date}}</td>
+    <td>X</td>
+</script>
 </body>
 </html>
