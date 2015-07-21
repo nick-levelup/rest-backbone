@@ -1,44 +1,44 @@
 define(
-	[
-		'backbone',
-		'handlebars'
-	],
-	function (
-			Backbone,
-			Handlebars
-		) {
-		var FormView = Backbone.View.extend({
+  [
+    'backbone',
+    'handlebars'
+  ],
+  function (
+    Backbone,
+    Handlebars
+  ) {
+    var FormView = Backbone.View.extend({
 
-			events: {
-				'submit': 'submitEvent'
-			},
+      events: {
+        'submit': 'submitEvent'
+      },
 
-			tagName: 'form',
-			className: 'js-form',
+      tagName: 'form',
+      className: 'js-form',
 
-			template: Handlebars.compile($('#formTpl').html()),
+      template: Handlebars.compile($('#formTpl').html()),
 
-			render: function () {
-				this.$el.html(this.template());
+      render: function () {
+        this.$el.html(this.template());
 
-				return this;
-			},
+        return this;
+      },
 
-			submitEvent: function (event) {
-				event.preventDefault();
+      submitEvent: function (event) {
+        event.preventDefault();
 
-		        var $form = this.$el,
-		            data = {};
+        var $form = this.$el,
+          data = {};
 
-		        _.each($form.serializeArray(), function (item) {
-		            data[item.name] = item.value;
-		        });
+        _.each($form.serializeArray(), function (item) {
+          data[item.name] = item.value;
+        });
 
-		        this.collection.add(data).save();
-			}
+        this.collection.add(data).save();
+      }
 
-		});
+    });
 
-		return FormView;
-	}
-)
+    return FormView;
+  }
+);

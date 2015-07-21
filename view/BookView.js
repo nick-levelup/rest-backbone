@@ -1,31 +1,31 @@
 define(
-	[
-		'backbone',
-		'handlebars'
-	],
-	function (
-			Backbone,
-			Handlebars
-		) {
+  [
+    'backbone',
+    'handlebars'
+  ],
+  function (
+    Backbone,
+    Handlebars
+  ) {
 
-		var BookView = Backbone.View.extend({
+    var BookView = Backbone.View.extend({
 
-			tagName: 'tr',
+      tagName: 'tr',
 
-			events: {
-				// 'click th[data-sort]': 'sortEvent'
-			},
+      events: {
+        // 'click th[data-sort]': 'sortEvent'
+      },
 
-			template: Handlebars.compile($('#bookTpl').html()),
+      template: Handlebars.compile($('#bookTpl').html()),
 
-			render: function () {
-				this.$el.html(this.template(this.model.toJSON()));
+      render: function () {
+        this.$el.html(this.template(this.model.toJSON()));
 
-				return this;
-			}
+        return this;
+      }
 
-		});
+    });
 
-		return BookView;
-	}
+    return BookView;
+  }
 )

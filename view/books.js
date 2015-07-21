@@ -1,84 +1,84 @@
 define([
-    'handlebars',
-    'jquery',
-    'jqueryui',
+  'handlebars',
+  'jquery',
+  'jqueryui',
 
-    'collections/books',
+  'collections/books',
 
-    'templates/books'
+  'templates/books'
 ], function (
-    Handlebars,
-    $,
-    jqueryUI,
+  Handlebars,
+  $,
+  jqueryUI,
 
-    getBooks,
+  getBooks,
 
-    booksTpl
+  booksTpl
 ) {
 
-    var books = getBooks();
+  var books = getBooks();
 
-    // activate datepicker
-    (function () {
-        $('input[name="releaseDate"]').datepicker();
-    })()
+  // activate datepicker
+  (function () {
+    $('input[name="releaseDate"]').datepicker();
+  })();
 
-    function renderBooks (data) {
-        $('.js-books').html(Handlebars.compile(booksTpl)(data));
-    }
+  function renderBooks (data) {
+    $('.js-books').html(Handlebars.compile(booksTpl)(data));
+  }
 
-    function bind () {
-        $('.js-books').on('click', 'tr td:last-child', deleteBookEvent);
-        $('.js-form').on('submit', createBookEvent);
-        $('.js-books').on('click', 'th[data-sort]', sortEventClick);
-    }
+  function bind () {
+    $('.js-books').on('click', 'tr td:last-child', deleteBookEvent);
+    $('.js-form').on('submit', createBookEvent);
+    $('.js-books').on('click', 'th[data-sort]', sortEventClick);
+  }
 
-    function sortEventClick (event) {
-        event.preventDefault();
+  function sortEventClick (event) {
+    event.preventDefault();
 
-        var $el = $(this),
-            sortParam = $el.data('sort');
+    var $el = $(this),
+      sortParam = $el.data('sort');
 
-        sortBooks(sortParam);
-    }
+    sortBooks(sortParam);
+  }
 
-    function sortBooks (sortParam) {
-        // change comparator
-        books.comparator = sortParam
-        // cort collection with new comporator
-        books.sort();
-    }
-
-
-    function deleteBookEvent () {
-        var me = this,
-            book = books.get($(me).closest('tr').data('id'));
-
-        book.destroy({
-            success: function () {
-                renderBooks(getBooks().toJSON())
-            }
-        });
-    }
-
-    function createBookEvent (event) {
-        event.preventDefault();
-
-        var me = this,
-            $form = $(me),
-            data = {};
-
-        _.each($form.serializeArray(), function (item) {
-            data[item.name] = item.value;
-        });
-
-        books.add(data).save();
-    }
-
-    bind();
+  function sortBooks (sortParam) {
+    // change comparator
+    books.comparator = sortParam
+    // cort collection with new comporator
+    books.sort();
+  }
 
 
-    return {
-        renderBooks: renderBooks
-    }
+  function deleteBookEvent () {
+    var me = this,
+      book = books.get($(me).closest('tr').data('id'));
+
+    book.destroy({
+      success: function () {
+        renderBooks(getBooks().toJSON())
+      }
+    });
+  }
+
+  function createBookEvent (event) {
+    event.preventDefault();
+
+    var me = this,
+      $form = $(me),
+      data = {};
+
+    _.each($form.serializeArray(), function (item) {
+      data[item.name] = item.value;
+    });
+
+    books.add(data).save();
+  }
+
+  bind();
+
+
+  return {
+    renderBooks: renderBooks
+  }
 });

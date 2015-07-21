@@ -1,13 +1,13 @@
 define(['collections/BooksCollection'], function (Books) {
-	var books;
+  var books;
 
-	function getBooks () {
-		if (!books) {
-			books = new Books;
-		};
+  function getBooks () {
+    if (!books) {
+      books = new Books;
+    };
 
-		return books;
-	}
+    return books;
+  }
 
-	return getBooks;
+  return getBooks;
 });

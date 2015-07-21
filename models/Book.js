@@ -1,29 +1,29 @@
 define([
-		'backbone',
-	], function (
-		Backbone
-	) {
-	
-	return Backbone.Model.extend({
+  'backbone',
+], function (
+  Backbone
+) {
 
-	    initialize: function () {
-	      this.listenTo(this, 'all', function (eventName) {
-	        console.info('model', eventName)
-	      });
-	    },
+  return Backbone.Model.extend({
 
-		parse: function (data) {
-			data.date = data.releaseDateMS;
+    initialize: function () {
+      this.listenTo(this, 'all', function (eventName) {
+        console.info('model', eventName)
+      });
+    },
 
-			delete data.releaseDateMS;
-			delete data._id;
-			delete data.__v;
+    parse: function (data) {
+      data.date = data.releaseDateMS;
 
-			data.bookTitle = data.title;
+      delete data.releaseDateMS;
+      delete data._id;
+      delete data.__v;
 
-			return data
-		},
+      data.bookTitle = data.title;
 
-	    // idAttribute: '_id'
-	});
- });
+      return data
+    },
+
+    // idAttribute: '_id'
+  });
+});
