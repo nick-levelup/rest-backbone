@@ -51,18 +51,11 @@ define(
         var $el = $(event.currentTarget),
           sortParam = $el.data('sort');
 
-        this.sortBooks(sortParam);
-      },
-
-      sortBooks: function (sortParam) {
-        // change comparator
-        this.collection.comparator = sortParam
-        // cort collection with new comporator
-        this.collection.sort();
+        this.collection.sortBooks(sortParam);
       }
 
     });
 
     return BooksView;
   }
-)
+);
