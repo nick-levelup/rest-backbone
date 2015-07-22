@@ -10,7 +10,7 @@ define([
   return Backbone.Collection.extend({
     model: Book,
 
-    url: 'http://10.47.90.173:8080/api/books',
+    //url: 'http://10.47.90.173:8080/api/books',
     url: 'http://localhost:8080/api/books',
 
     // sort book by title
