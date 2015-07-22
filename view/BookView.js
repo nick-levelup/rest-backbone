@@ -13,7 +13,7 @@ define(
       tagName: 'tr',
 
       events: {
-        // 'click th[data-sort]': 'sortEvent'
+        'click td:last-child': 'deleteBook'
       },
 
       template: Handlebars.compile($('#bookTpl').html()),
@@ -22,6 +22,10 @@ define(
         this.$el.html(this.template(this.model.toJSON()));
 
         return this;
+      },
+
+      deleteBook: function () {
+      	this.model.destroy();
       }
 
     });

@@ -8,7 +8,25 @@
 </head>
 <body>
 
+<ul>
+    <li><a href="#">Home</a></li>
+</ul>
+
+<div class="js-page">
+    
+</div>
+
 <script data-main="core.js" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.19/require.js"></script>
+
+<script id="bookPageTpl" type="text/x-handlebars-template">
+    <h1>BookPage</h1>
+</script>
+
+<script id="notFoundTpl" type="text/x-handlebars-template">
+    <h1>Not found!</h1>
+
+    <p>Return to <a href="#">main page</a></p>
+</script>
 
 <script id="booksTpl" type="text/x-handlebars-template">
     <thead>

@@ -26,7 +26,7 @@ define(
       initialize: function () {
         this.collection.fetch();
 
-        this.listenTo(this.collection, 'sort', this.render);
+        this.listenTo(this.collection, 'sort destroy', this.render);
       },
 
       render: function () {

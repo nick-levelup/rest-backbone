@@ -3,17 +3,13 @@ define([
   'jquery',
   'jqueryui',
 
-  'collections/books',
-
-  'templates/books'
+  'collections/books'
 ], function (
   Handlebars,
   $,
   jqueryUI,
 
-  getBooks,
-
-  booksTpl
+  getBooks
 ) {
 
   var books = getBooks();
@@ -24,7 +20,7 @@ define([
   })();
 
   function renderBooks (data) {
-    $('.js-books').html(Handlebars.compile(booksTpl)(data));
+    $('.js-books').html(Handlebars.compile($('#booksTpl').html())(data));
   }
 
   function bind () {

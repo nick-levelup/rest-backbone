@@ -18,23 +18,27 @@ requirejs([
 		'view/BooksView',
 		'view/FormView',
 
-		'collections/books'
+		'collections/books',
+
+		'router'
 	], function (
 		BooksView,
 		FormView,
 
 		getBooks
 	) {
-		// create books
-		var books = new BooksView({
-			collection: getBooks()
-		});
+		Backbone.history.start();
 
-		// Create form
-		var form = new FormView({
-			collection: getBooks()
-		});
+		// // create books
+		// var books = new BooksView({
+		// 	collection: getBooks()
+		// });
 
-		$('body').append(form.render().el);
-		$('body').append(books.render().el);
+		// // Create form
+		// var form = new FormView({
+		// 	collection: getBooks()
+		// });
+
+		// $('body').append(form.render().el);
+		// $('body').append(books.render().el);
 })
