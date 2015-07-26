@@ -1,53 +1,53 @@
 define([
-		'backbone',
+  'backbone',
 
-		'view/HomePage',
-		'view/BookPage',
-		'view/NotFoundPage'
-	], function (
-		Backbone,
+  'pages/HomePage',
+  'pages/BookPage',
+  'pages/NotFoundPage'
+], function (
+  Backbone,
 
-		HomePage,
-		BookPage,
-		NotFoundPage
-	) {
+  HomePage,
+  BookPage,
+  NotFoundPage
+) {
 
-	var Router = Backbone.Router.extend({
-		routes: {
-			'(books)(/)': 'homePage',
-			'books/:id(/)': 'bookPage',
-			'*notfound': 'notFoundPage'
-		},
+  var Router = Backbone.Router.extend({
+    routes: {
+      '(books)(/)': 'homePage',
+      'books/:id(/)': 'bookPage',
+      '*notfound': 'notFoundPage'
+    },
 
-		homePage: function () {
-			this.removeCurrentPage();
+    homePage: function () {
+      this.removeCurrentPage();
 
-			this.currentPage = new HomePage();
-		},
+      this.currentPage = new HomePage();
+    },
 
-		bookPage: function (id) {
-			console.log('bookpage', id);
+    bookPage: function (id) {
+      console.log('bookpage', id);
 
-			this.removeCurrentPage();
+      this.removeCurrentPage();
 
-			this.currentPage = new BookPage();
-		},
+      this.currentPage = new BookPage();
+    },
 
-		notFoundPage: function () {
-			console.log('notfoundpage');
+    notFoundPage: function () {
+      console.log('notfoundpage');
 
-			this.removeCurrentPage();
+      this.removeCurrentPage();
 
-			this.currentPage = new NotFoundPage();
-		},
+      this.currentPage = new NotFoundPage();
+    },
 
-		// custom methods
-		removeCurrentPage: function () {
-			if (this.currentPage) {
-				this.currentPage.trigger('removePage');
-			};			
-		}
-	});
+    // custom methods
+    removeCurrentPage: function () {
+      if (this.currentPage) {
+        this.currentPage.trigger('removePage');
+      };
+    }
+  });
 
-	window.router = new Router;
+  window.router = new Router;
 });

@@ -1,5 +1,5 @@
 define([
-  'view/AbstractPage',
+  'pages/AbstractPage',
 
   'handlebars'
 ], function (
