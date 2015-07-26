@@ -8,24 +8,27 @@
 </head>
 <body>
 
+<!-- menu for all pages -->
 <ul>
     <li><a href="#">Home</a></li>
+    <li><a href="#zzzzzz">NotFound</a></li>
 </ul>
 
+<!--container where will render each page -->
 <div class="js-page">
     
 </div>
 
 <script data-main="core.js" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.19/require.js"></script>
 
-<script id="bookPageTpl" type="text/x-handlebars-template">
-    <h1>BookPage</h1>
+<script id="titleTpl" type="text/x-handlebars-template">
+    <h1>{{title}}</h1>
 </script>
 
-<script id="notFoundTpl" type="text/x-handlebars-template">
-    <h1>Not found!</h1>
-
-    <p>Return to <a href="#">main page</a></p>
+<script id="bookFullTpl" type="text/x-handlebars-template">
+    <div>{{bookTitle}}</div>
+    <div>{{author}}</div>
+    <div>{{date}}</div>
 </script>
 
 <script id="booksTpl" type="text/x-handlebars-template">
@@ -65,7 +68,7 @@
 </script>
 
 <script id="bookTpl" type="text/x-handlebars-template">
-    <td>{{bookTitle}}</td>
+    <td><a href="#books/{{id}}">{{bookTitle}}</a></td>
     <td>{{author}}</td>
     <td>{{date}}</td>
     <td>X</td>

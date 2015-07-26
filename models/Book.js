@@ -6,6 +6,8 @@ define([
 
   return Backbone.Model.extend({
 
+    urlRoot: 'http://localhost:8080/api/books',
+
     initialize: function () {
       this.listenTo(this, 'all', function (eventName) {
         console.info('model', eventName)

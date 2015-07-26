@@ -1,17 +1,31 @@
 define([
   'pages/AbstractPage',
 
-  'handlebars'
+  'view/BookViewDetail',
+
+  'models/Book'
 ], function (
   AbstractPage,
-  Handlebars
+
+  BookViewDetail,
+
+  Book
 ) {
 
   return AbstractPage.extend({
 
-    title: 'Book Page',
+    initialize: function (options) {
 
-    template: Handlebars.compile($('#notFoundTpl').html())
+      AbstractPage.prototype.initialize.call(this, arguments);
 
+      var model = new Book({id: options.id});
+      model.fetch();
+
+      var bookView = new BookViewDetail({
+        model: model
+      });
+
+      this.components.push(bookView);
+    }
   })
 });

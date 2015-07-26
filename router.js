@@ -20,25 +20,35 @@ define([
     },
 
     homePage: function () {
-      this.removeCurrentPage();
-
-      this.currentPage = new HomePage();
+      this.createPage('homepage');
     },
 
     bookPage: function (id) {
-      console.log('bookpage', id);
-
-      this.removeCurrentPage();
-
-      this.currentPage = new BookPage();
+      this.createPage('book', {id: id});
     },
 
     notFoundPage: function () {
-      console.log('notfoundpage');
+      this.createPage('notfoundpage');
+    },
+
+    createPage: function (type, params) {
+      var PageClass;
+
+      if (type === 'homepage') {
+        PageClass = HomePage;
+      }
+
+      if (type === 'book') {
+        PageClass = BookPage;
+      }
+
+      if (type === 'notfoundpage') {
+        PageClass = NotFoundPage;
+      }
 
       this.removeCurrentPage();
 
-      this.currentPage = new NotFoundPage();
+      this.currentPage = (new PageClass(params)).render();
     },
 
     // custom methods

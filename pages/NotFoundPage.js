@@ -9,9 +9,7 @@ define([
 
   return AbstractPage.extend({
 
-    title: 'Not Found!',
-
-    template: Handlebars.compile($('#notFoundTpl').html())
+    title: 'Not Found!'
 
   })
 });

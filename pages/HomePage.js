@@ -1,31 +1,26 @@
 define([
   'pages/AbstractPage',
   'view/BooksView',
-  'collections/books',
-
-  'handlebars'
+  'collections/books'
 ], function (
   AbstractPage,
   BooksView,
-  getBooks,
-
-  Handlebars
+  getBooks
 ) {
 
   return AbstractPage.extend({
 
     title: 'Home Page',
 
-    template: Handlebars.compile($('#bookPageTpl').html()),
-
     initialize: function () {
-      var books = new BooksView({
-        collection: getBooks()
-      });
 
       AbstractPage.prototype.initialize.call(this, arguments);
 
-      this.$el.append(books.$el);
+      var booksView = new BooksView({
+        collection: getBooks()
+      });
+
+      this.components.push(booksView);
     }
 
   })
