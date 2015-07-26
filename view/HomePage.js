@@ -1,32 +1,32 @@
 define([
-	'view/AbstractPage',
-	'view/BooksView',
-	'collections/books',
+  'view/AbstractPage',
+  'view/BooksView',
+  'collections/books',
 
-	'handlebars'
-	], function (
-		AbstractPage,
-		BooksView,
-		getBooks,
+  'handlebars'
+], function (
+  AbstractPage,
+  BooksView,
+  getBooks,
 
-		Handlebars
-	) {
+  Handlebars
+) {
 
-	return AbstractPage.extend({
+  return AbstractPage.extend({
 
-		title: 'Home Page',
+    title: 'Home Page',
 
-		template: Handlebars.compile($('#bookPageTpl').html()),
+    template: Handlebars.compile($('#bookPageTpl').html()),
 
-		initialize: function () {
-			var books = new BooksView({
-				collection: getBooks()
-			});
+    initialize: function () {
+      var books = new BooksView({
+        collection: getBooks()
+      });
 
-			AbstractPage.prototype.initialize.call(this, arguments);
+      AbstractPage.prototype.initialize.call(this, arguments);
 
-			this.$el.append(books.$el);
-		}
+      this.$el.append(books.$el);
+    }
 
-	})
+  })
 });

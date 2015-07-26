@@ -1,38 +1,38 @@
 define([
-		'backbone'
-	], function (
-		Backbone
-	) {
+  'backbone'
+], function (
+  Backbone
+) {
 
-	return Backbone.View.extend({
+  return Backbone.View.extend({
 
-		changeTitle: function (title) {
-			document.querySelector('title').firstChild.nodeValue = title;
-		},
+    changeTitle: function (title) {
+      document.querySelector('title').firstChild.nodeValue = title;
+    },
 
-		initialize: function () {
-			// set event listeners
-			this.listenTo(this, 'removePage', this.removePage);
+    initialize: function () {
+      // set event listeners
+      this.listenTo(this, 'removePage', this.removePage);
 
-			// set title of page
-			this.changeTitle(this.title);
+      // set title of page
+      this.changeTitle(this.title);
 
-			// insert view into DOM
-			$('.js-page').append(this.el);
+      // insert view into DOM
+      $('.js-page').append(this.el);
 
-			// set content
-			this.render();
-		},
+      // set content
+      this.render();
+    },
 
-		render: function () {
-			this.$el.html(this.template());
+    render: function () {
+      this.$el.html(this.template());
 
-			return this;	
-		},
+      return this;
+    },
 
-		removePage: function () {
-			this.remove();
-		}
+    removePage: function () {
+      this.remove();
+    }
 
-	});
+  });
 });

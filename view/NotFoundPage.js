@@ -1,17 +1,17 @@
 define([
-	'view/AbstractPage',
+  'view/AbstractPage',
 
-	'handlebars'
-	], function (
-		AbstractPage,
-		Handlebars
-	) {
+  'handlebars'
+], function (
+  AbstractPage,
+  Handlebars
+) {
 
-	return AbstractPage.extend({
+  return AbstractPage.extend({
 
-		title: 'Not Found!',
+    title: 'Not Found!',
 
-		template: Handlebars.compile($('#notFoundTpl').html())
+    template: Handlebars.compile($('#notFoundTpl').html())
 
-	})
+  })
 });
