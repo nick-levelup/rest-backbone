@@ -25,7 +25,13 @@ define(
       },
 
       deleteBook: function () {
-      	this.model.destroy();
+        this.model.destroy();
+
+        this.removeEvent();
+      },
+
+      removeEvent: function () {
+        this.remove();
       }
 
     });

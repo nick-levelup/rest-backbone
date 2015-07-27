@@ -15,17 +15,8 @@ requirejs.config({
 });
 
 requirejs([
-		'view/BooksView',
-		'view/FormView',
-
-		'collections/books',
-
 		'router'
 	], function (
-		BooksView,
-		FormView,
-
-		getBooks
 	) {
 		Backbone.history.start();
 

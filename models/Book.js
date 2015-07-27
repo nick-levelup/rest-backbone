@@ -6,9 +6,10 @@ define([
 
   return Backbone.Model.extend({
 
-    urlRoot: 'http://localhost:8080/api/books',
+    // urlRoot: 'http://localhost:8080/api/books',
+    urlRoot: 'http://10.47.90.187:8080/api/books',
 
-    initialize: function () {
+    initialize: function (options) {
       this.listenTo(this, 'all', function (eventName) {
         console.info('model', eventName)
       });

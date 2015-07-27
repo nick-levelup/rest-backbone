@@ -8,9 +8,6 @@ define([
     template: Handlebars.compile($('#titleTpl').html()),
 
     initialize: function (options) {
-      window.title = window.title || {};
-      window.title[this.cid] = this;
-
       this.data = options.data;
     },
 
